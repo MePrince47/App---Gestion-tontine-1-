@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title> BD - Tontine</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'tontine/css/bootstrap.css' %}">
+</head>
+<body>
+	<div class="container mt-5">
+		<h2 class="text-center alert alert-danger"> Création d'une tontine  </h2>
+		{% block content%} 
+		
+		{% endblock content%}
+	</div>
+	<script src="{% static 'tontine/js/bootstrap.js' %}"></script>
+	<script src="{% static 'tontine/js/jquery.js' %}"></script>
+	<script src="{% static 'tontine/js/popper.js' %}"></script>
+</body>
+</html>

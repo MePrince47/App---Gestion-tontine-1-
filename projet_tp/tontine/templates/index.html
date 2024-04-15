@@ -1,0 +1,14 @@
+{% extends 'tontine/base.html' %}
+
+
+{% block content %}
+
+<div class="col-sm-7 offset-1">
+			<h4 class="alert alert-info"> Gestion des tontines  </h4>	<hr>
+				<a href="{% url 'Add' %} "class="btn btn-outline-primary" >Gestion de la tontine </a><br />
+				<a href="{% url 'Add_membre' %} "class="btn btn-outline-primary" >Gestion des membres </a><br />
+				<a href="{% url 'Add_membre' %} "class="btn btn-outline-primary" > Voir le comité exécutif </a><br />
+				<a href="{% url 'Add_membre' %} "class="btn btn-outline-primary" > Gestion des  élections </a><br />
+				<a href="{% url 'Add_membre' %} "class="btn btn-outline-primary" > Gestion des réunions </a><br />
+</div>
+{% endblock content %}

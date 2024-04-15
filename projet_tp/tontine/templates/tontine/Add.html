@@ -1,0 +1,65 @@
+{% extends 'tontine/base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+
+	<div class="col-sm-4">
+	 <h4 class="text-center alert alert alert-info"> Créer une nouvelle tontine </h4>
+	 <form action="" method="POST">
+ 	{% csrf_token %}
+ 	{% if erreur %}
+			<h4 class="text-center alert alert alert-warning">Cette tontine existe déjà</h4>
+		{% endif %}
+ 	{{form.as_p}}
+
+ 	<input type="submit" class="btn btn-success" value="Ajouter" name="">
+	<a href="{% url 'Homepage' %}"class="btn btn-warning btn-success">Retour à la page d'accueil</a>
+ </form>
+
+	</div>
+	<div class="col-sm-7 offset-1">
+		<h4 class="text-center alert alert alert-info">montrer les informations des tontines </h4>
+
+		{% if stu %}
+		<table class="table table-hover">
+			<thread>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Slogan</th>
+					<th scope="col">règle</th>
+					<th scope="col">Action</th>
+				</tr>
+				<tbody>
+					{% for st in stu %}
+					<tr>
+					<th scope="row">{{st.id}}</th>
+					<td>{{st.nom}}</td>
+					<td>{{st.slogan}}</td>
+					<td>{{st.regle}}</td>
+					<td class="btn btn-warning btn-sm">
+						<a href="{% url 'modifierdata' st.id %}"class="btn btn-warning btn-sm">Modifier</a>
+						<form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline">{% csrf_token %}
+							<input type="submit" class="btn btn-danger btn-sm" value="Supprimer">
+						
+						</form>
+
+
+					</td>
+					</tr>
+					{% endfor %}
+				
+			</tbody>
+
+			</thread>
+
+		</table>
+		{% else %}
+		<h4 class="text-center alert alert alert-warning">Pas de tontine</h4>
+		{% endif %}
+		
+	</div>
+</div>
+{% endblock content %}
